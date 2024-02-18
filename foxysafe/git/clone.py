@@ -58,8 +58,18 @@ def clone_project(args) -> dict[str, Any]:
                 try:
                     result["submodules"] = [submodule.url for submodule in repository.submodules]
                     log.info("Update submodules...")
-                    repository.submodule_update(recursive=True, init=True)
-                    result["is_submodules_cloned"] = True
+                    are_submodules_updated = len(repository.submodules) * [False]
+                    for ids, submodule in enumerate(repository.submodules):
+                        try:
+                            submodule_path = (Path(target_path) / submodule.path).as_posix()
+                            git.Repo.clone_from(submodule.url, submodule_path, recursive=True)
+                            are_submodules_updated[ids] = True
+                            log.info(f"Cloning submodule {submodule.name} has completed.")
+                        except Exception as e:
+                            log.warning(f"Updating submodules has failed: {e}")
+
+                    repository.submodule_update(recursive=True)
+                    result["is_submodules_cloned"] = all(are_submodules_updated)
                     log.info("Updated submodules.")
                 except Exception as e:
                     log.warning(f"Updating submodules has failed: {e}")
@@ -157,9 +167,18 @@ def clone_wiki(args) -> dict[str, Any]:
             if repository.submodules:
                 try:
                     result["submodules"] = [submodule.url for submodule in repository.submodules]
-                    log.info("Update submodules...")
-                    repository.submodule_update(recursive=True, init=True)
-                    result["is_submodules_cloned"] = True
+                    are_submodules_updated = len(repository.submodules) * [False]
+                    for ids, submodule in enumerate(repository.submodules):
+                        try:
+                            submodule_path = (Path(target_path) / submodule.path).as_posix()
+                            git.Repo.clone_from(submodule.url, submodule_path, recursive=True)
+                            are_submodules_updated[ids] = True
+                            log.info(f"Cloning submodule {submodule.name} has completed.")
+                        except Exception as e:
+                            log.warning(f"Updating submodules has failed: {e}")
+
+                    repository.submodule_update(recursive=True)
+                    result["is_submodules_cloned"] = all(are_submodules_updated)
                     log.info("Updated submodules.")
                 except Exception as e:
                     log.warning(f"Updating submodules has failed: {e}")

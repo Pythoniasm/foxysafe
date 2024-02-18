@@ -12,7 +12,6 @@ GitLab backup tool for repositories, issues, wikis, and snippets.
   - [Usage](#usage)
   - [Contribute](#contribute)
     - [Development Installation](#development-installation)
-  - [Changelog](#changelog)
 
 ## Install
 
@@ -53,14 +52,3 @@ Further, you can use Makefile to run linting:
 ```console
 make lint
 ```
-
-## Changelog
-
-- v0.1.0
-  - Initial release
-  - Support for:
-    - Recursive (group) repository search
-    - Repository clone with submodules and branches
-    - Download of issue descriptions, notes, info jsons, and their attachements
-    - Download of wikis and their attachements
-    - Download of snippets, snippet descriptions, info jsons and their attachements

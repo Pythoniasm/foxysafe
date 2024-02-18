@@ -1,6 +1,5 @@
 import logging
 
-import hydra
 from beartype import beartype
 from hydra.core.hydra_config import HydraConfig
 from loguru import logger as log
@@ -76,24 +75,3 @@ def disable_logging_groups(logging_groups: str | list[str]) -> None:
 
     for group in logging_groups:
         log.disable(group)
-
-
-if __name__ == "__main__":
-    """Example for logging with hydra, loguru and rich, also supporting"""
-
-    from foxysafe import CONFIG_DIR, CONFIG_NAME
-
-    @hydra.main(config_path=CONFIG_DIR, config_name=CONFIG_NAME, version_base="1.3")
-    def logging_example(hydra_config: DictConfig) -> None:
-        """Example for logging with hydra, loguru and rich, also supporting
-
-        Args:
-            config (DictConfig): Hydra config object.
-        """
-
-        log = setup_custom_hydra_logging(hydra_config)
-
-        log.debug(hydra_config)
-        log.info("Relevant info.")
-
-    logging_example()

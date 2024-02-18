@@ -47,7 +47,7 @@ def gitlab_backup_routine(config: DictConfig, backup_dir: Path) -> None:
     if wikis:
         clone_wikis(wikis, backup_dir)
         for obj in wikis.values():
-            log.info(f"Backing up wiki attachments for {obj.path_with_namespace}")
+            log.info(f"Backing up wiki attachments for {obj.path_with_namespace}...")
             try:
                 backup_wiki_attachements(config, obj, obj.path_with_namespace, backup_dir)
             except Exception as e:
@@ -55,11 +55,11 @@ def gitlab_backup_routine(config: DictConfig, backup_dir: Path) -> None:
 
     if issues:
         for issue in issues.values():
-            log.info(f"Backing up issue {issue.iid} for {projects[issue.project_id].path_with_namespace}")
+            log.info(f"Backing up issue {issue.iid} for {projects[issue.project_id].path_with_namespace}...")
             try:
                 backup_issue(config, issue, projects[issue.project_id].path_with_namespace, backup_dir)
                 for note in issue.notes.list(all=True):
-                    log.info(f"Backing up issue note {note.id} for {projects[issue.project_id].path_with_namespace}")
+                    log.info(f"Backing up issue note {note.id} for {projects[issue.project_id].path_with_namespace}...")
                     try:
                         backup_issue(
                             config,
@@ -77,7 +77,7 @@ def gitlab_backup_routine(config: DictConfig, backup_dir: Path) -> None:
     if snippets:
         clone_snippets(snippets, backup_dir)
         for snippet in snippets.values():
-            log.info(f"Backing up snippet {snippet.id} for {snippet.path_with_namespace}")
+            log.info(f"Backing up snippet {snippet.id}...")
             try:
                 backup_snippet_attachements(config, snippet, backup_dir)
             except Exception as e:
