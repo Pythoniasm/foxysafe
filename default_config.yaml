@@ -1,0 +1,17 @@
+debug: false
+
+gitlab_server: ${env:GITLAB_SERVER}
+gitlab_username: ${env:GITLAB_USERNAME}
+gitlab_password: ${env:GITLAB_PASSWORD}
+gitlab_personal_access_token: ${env:GITLAB_PERSONAL_ACCESS_TOKEN}
+
+gitlab_group_ids:
+  - 1
+
+gitlab_project_ids:
+  - 1
+
+include_personal_projects: false
+include_wikis: false
+include_issues: false
+include_snippets: false

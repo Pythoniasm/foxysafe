@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools==69.1.0", "wheel==0.42.0"]
+
+[project]
+name = "foxysafe"
+version = "0.1.2"
+requires-python = ">=3.12.1"
+readme = "README.md"
+license = {text = "MIT"}
+dynamic = ["dependencies"]
+
+[project.scripts]
+foxysafe = "foxysafe.entrypoints:main"
+
+[project.optional-dependencies]
+dev = [
+    "black==24.2.0",
+    "build==1.0.3",
+    "isort==5.13.2",
+    "pipdeptree==2.7.1",
+    "ruff==0.2.2",
+    "twine==4.0.2"
+]
+
+[tool.setuptools.packages]
+find = {}
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.isort]
+profile = "black"
+line_length = 120
+src_paths = ["foxysafe"]
+
+[tool.black]
+line-length = 120
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+fix = true

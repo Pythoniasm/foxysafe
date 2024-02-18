@@ -1,0 +1,30 @@
+# Project
+logs/
+outputs/
+foxysafe_backups/
+foxysafe_out/
+
+config.yaml
+*.log
+config.yaml
+
+# Development Tools
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+
+dependencies.txt
+
+# Environments
+.env
+
+# Virtual Environments
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.egg-info/
+
+*.pyc
