@@ -1,5 +1,10 @@
 # FoxySafe
 
+[![PyPI Version](https://img.shields.io/pypi/v/foxysafe?color=blue)](https://pypi.org/project/foxysafe)
+[![GitHub Tag](https://img.shields.io/github/v/tag/Pythoniasm/foxysafe?label=GitHub&color=black)](https://github.com/Pythoniasm/foxysafe)
+
+GitLab backup tool for repositories, issues, wikis, and snippets.
+
 ## Table of Contents
 - [FoxySafe](#foxysafe)
   - [Table of Contents](#table-of-contents)
