@@ -16,20 +16,20 @@ GitLab backup tool for repositories, issues, wikis, and snippets.
 ## Install
 
 ```console
-pip install foxysafe
+pip install -e foxysafe
 ```
 
 ## Usage
 
 - Copy the `default_config.yaml` to a custom `config.yaml` and adjust the settings to your needs.
-- Copy the `.env.example` to ` and adjust the settings to your needs.
+- Copy the `.env.example` to `.env` and adjust the settings to your needs.
 
-If you have cloned the repository and run the package from the source directory with `default_config.yaml`:
+If you have cloned the repository and want to run the package from the source directory and the `default_config.yaml` file:
 ```console
 foxysafe
 ```
 
-If you have cloned the repository and run the package from the source directory with a path to a custom config `PATH_TO/config.yaml`:
+If you have cloned the repository and want to run the package from with a path to a custom config `PATH_TO/config.yaml`:
 ```console
 foxysafe --config-name PATH_TO_CONFIG.yaml
 ```
@@ -39,12 +39,7 @@ foxysafe --config-name PATH_TO_CONFIG.yaml
 ### Development Installation
 
 ```console
-git clone https://github.com/Pythoniasm/foxysafe.git
-cd foxysafe
-```
-
-```console
-python -m pip install --upgrade -e ".[dev]"
+python -m pip install -e ".[dev]"
 ```
 
 Further, you can use Makefile to run linting:
